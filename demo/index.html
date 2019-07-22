@@ -36,6 +36,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-color: var(--paper-blue-900);
         color: #fff;
       }
+
+      paper-tab {
+        --rounded-rectangle-fg: var(--paper-blue-900);
+        --rounded-rectangle-bg: #fff;
+      }
     </style>
 
   </head>
@@ -281,6 +286,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-tabs selected="0" autoselect autoselect-delay="1000">
             <paper-tab>ITEM ONE</paper-tab>
             <paper-tab>ITEM TWO</paper-tab>
+            <paper-tab>ITEM THREE</paper-tab>
+          </paper-tabs>
+        </template>
+      </demo-snippet>
+
+      <h3>
+        The <code>rounded-rectangle</code> attribute will replace the underline with a rounded rectangle to signify the selected tab.
+      </h3>
+      <demo-snippet>
+        <template>
+          <h4>
+            <code>rounded-rectangle</code>
+          </h4>
+          <paper-tabs selected="0" rounded-rectangle>
+            <paper-tab>ITEM ONE</paper-tab>
+            <paper-tab>ITEM TWO item two</paper-tab>
             <paper-tab>ITEM THREE</paper-tab>
           </paper-tabs>
         </template>
