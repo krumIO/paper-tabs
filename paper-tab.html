@@ -102,7 +102,7 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
             }
 
             :host[rounded-rectangle] .tab-content {
-                padding: 0;
+                padding: 8px 0;
                 height: auto;
             }
 
@@ -118,11 +118,15 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
 
             .rounded-rectangle {
                 border-radius: 8px;
-                padding: 12px 8px;
+                padding: 8px 8px;
                 text-align: center;
                 margin: 0;
                 display: inline-block;
                 width: 100%;
+            }
+
+            :host.paper-tab-0 {
+                padding: 0 8px !important;
             }
         </style>
 
