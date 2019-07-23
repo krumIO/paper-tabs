@@ -118,6 +118,11 @@ Custom property | Description | Default
                 @apply(--paper-tabs);
             }
 
+            :host[rounded-rectangle] {
+                overflow: auto;
+                height: 56px;
+            }
+
             :host-context([dir=rtl]) {
                 @apply(--layout-horizontal-reverse);
             }
@@ -158,6 +163,11 @@ Custom property | Description | Default
                 -ms-flex: 1 0 auto;
                 -webkit-flex: 1 0 auto;
                 flex: 1 0 auto;
+            }
+
+            :host[rounded-rectangle] #tabsContent {
+                padding-left: 8px;
+                padding-right: 8px;
             }
 
             .hidden {
@@ -222,7 +232,7 @@ Custom property | Description | Default
                 on-down="_onLeftScrollButtonDown" tabindex="-1"></paper-icon-button>
         </template>
         <div id="tabsContainer" on-track="_scroll" on-down="_down">
-            <div id="tabsContent" class$="[[_computeTabsContentClass(scrollable, fitContainer)]]">
+            <div id="tabsContent" class$="[[_computeTabsContentClass(scrollable, fitContainer, roundedRectangle)]]">
                 <div id="selectionBar" class$="[[_computeSelectionBarClass(noBar, alignBottom)]]"
                     on-transitionend="_onBarTransitionEnd"></div>
                 <content select="*"></content>
@@ -454,12 +464,14 @@ Custom property | Description | Default
                 if (hideThisButton) {
                     return 'not-visible';
                 }
-
                 return '';
             },
 
-            _computeTabsContentClass: function (scrollable, fitContainer) {
-                return scrollable ? 'scrollable' + (fitContainer ? ' fit-container' : '') : ' fit-container';
+            _computeTabsContentClass: function (scrollable, fitContainer, rect) {
+                var ret = scrollable ? 'scrollable' + (fitContainer ? ' fit-container' : '') : ' fit-container';
+
+                
+                return ret;
             },
 
             _computeSelectionBarClass: function (noBar, alignBottom) {
@@ -482,7 +494,7 @@ Custom property | Description | Default
             },
 
             _onIronSelect: function (event) {
-                console.log(event.detail.item, this._previousTab);
+                //console.log(event.detail.item, this._previousTab);
                 if (this.roundedRectangle) {
                     // These are HTML Elements
                     var currItem = event.detail.item;
